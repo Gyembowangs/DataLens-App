@@ -265,15 +265,22 @@ render_hero(
 )
 
 
-# --------------------------------------------------
+
 # 3. Check API key
-# --------------------------------------------------
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
+# Read the API key from Streamlit Cloud Secrets if not
+# available in the local environment.
+if not OPENROUTER_API_KEY:
+    try:
+        OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+    except Exception:
+        OPENROUTER_API_KEY = None
 
 if not OPENROUTER_API_KEY:
     st.error(
-        "OPENROUTER_API_KEY is missing. "
-        "Add it to your .env file and restart the app."
+        "OpenRouter API key is missing. "
+        "Add OPENROUTER_API_KEY under your Streamlit Cloud Secrets."
     )
     st.stop()
 
