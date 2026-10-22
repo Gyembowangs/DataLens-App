@@ -1,0 +1,10 @@
+product,region,quantity,unit_price
+Laptop,East,5,800
+Phone,West,12,500
+Laptop,West,3,800
+Tablet,East,10,300
+Phone,East,8,500
+Tablet,West,6,300
+Laptop,North,4,800
+Phone,North,7,500
+Tablet,North,9,300
